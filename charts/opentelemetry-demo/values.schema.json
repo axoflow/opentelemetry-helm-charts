@@ -33,7 +33,7 @@
     "components": {
       "$ref": "#/definitions/Components"
     },
-    "opentelemetry-collector": {
+    "opentelemetry-collector-1": {
       "type": "object"
     },
     "jaeger": {
