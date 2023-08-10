@@ -604,14 +604,7 @@ opentelemetry-collector-1:
   ports:
     metrics:
       enabled: true
-    prometheus:
-      enabled: true
-      containerPort: 9464
-      servicePort: 9464
-      protocol: TCP
   podAnnotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "9464"
     opentelemetry_community_demo: "true"
   config:
     receivers:
@@ -627,6 +620,68 @@ opentelemetry-collector-1:
               allowed_origins:
                 - "http://*"
                 - "https://*"
+
+    exporters:
+      ## Create an exporter to the other OpenTelemetry Collector using the standard `otlp` export format
+      otlp:
+        endpoint: '{{ include "otel-demo.name" . }}-opentelemetry-collector-2:4317'
+        tls:
+          insecure: true
+
+    processors:
+      # we can remove when this is fixed: https://github.com/open-telemetry/opentelemetry-demo/issues/737
+      transform:
+        metric_statements:
+          - context: metric
+            statements:
+              - set(description, "Measures the duration of inbound HTTP requests") where name == "http.server.duration"
+      # we can remove when this is fixed: https://github.com/open-telemetry/opentelemetry-demo/issues/826
+      filter/ottl:
+        error_mode: ignore
+        metrics:
+          metric:
+            - 'name == "queueSize"'
+
+    connectors:
+      spanmetrics:
+
+    service:
+      pipelines:
+        traces:
+          processors: [memory_limiter, batch]
+          exporters: [otlp, logging, spanmetrics]
+        metrics:
+          receivers: [otlp, spanmetrics]
+          processors: [memory_limiter, filter/ottl, transform, batch]
+          exporters: [otlp, logging]
+
+opentelemetry-collector-2:
+  enabled: true
+  nameOverride: otelcol
+  mode: deployment
+  resources:
+    limits:
+      memory: 125Mi
+  service:
+    type: ClusterIP
+  ports:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+      containerPort: 9464
+      servicePort: 9464
+      protocol: TCP
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9464"
+    opentelemetry_community_demo: "true"
+  config:
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
 
     exporters:
       ## Create an exporter to Jaeger using the standard `otlp` export format

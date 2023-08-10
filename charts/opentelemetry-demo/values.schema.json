@@ -36,6 +36,9 @@
     "opentelemetry-collector-1": {
       "type": "object"
     },
+    "opentelemetry-collector-2": {
+      "type": "object"
+    },
     "jaeger": {
       "type": "object"
     },
