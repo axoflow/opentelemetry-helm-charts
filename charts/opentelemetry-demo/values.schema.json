@@ -39,6 +39,9 @@
     "opentelemetry-collector-2": {
       "type": "object"
     },
+    "axosyslog-collector": {
+      "type": "object"
+    },
     "jaeger": {
       "type": "object"
     },

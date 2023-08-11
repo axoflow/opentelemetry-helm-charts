@@ -1,6 +1,15 @@
 =======================================================================================
 
 
+ █████╗ ██╗  ██╗ ██████╗ ███████╗██╗   ██╗███████╗██╗      ██████╗  ██████╗
+██╔══██╗╚██╗██╔╝██╔═══██╗██╔════╝╚██╗ ██╔╝██╔════╝██║     ██╔═══██╗██╔════╝
+███████║ ╚███╔╝ ██║   ██║███████╗ ╚████╔╝ ███████╗██║     ██║   ██║██║  ███╗
+██╔══██║ ██╔██╗ ██║   ██║╚════██║  ╚██╔╝  ╚════██║██║     ██║   ██║██║   ██║
+██║  ██║██╔╝ ██╗╚██████╔╝███████║   ██║   ███████║███████╗╚██████╔╝╚██████╔╝
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝╚══════╝ ╚═════╝  ╚═════╝
+            a cloud-native distribution of syslog-ng by Axoflow
+
+
  ██████╗ ████████╗███████╗██╗         ██████╗ ███████╗███╗   ███╗ ██████╗
 ██╔═══██╗╚══██╔══╝██╔════╝██║         ██╔══██╗██╔════╝████╗ ████║██╔═══██╗
 ██║   ██║   ██║   █████╗  ██║         ██║  ██║█████╗  ██╔████╔██║██║   ██║
@@ -23,6 +32,10 @@
 - OpenTelemetry Collector OTLP/HTTP receiver (required for browser spans to be emitted):
   by running these commands:
      kubectl port-forward svc/{{ include "otel-demo.name" . }}-otelcol-1 4318:4318
+
+- AxoSyslog Collector logs are available (parsed Spans and Metrics are printed):
+  by running these commands:
+     kubectl logs svc/{{ include "otel-demo.name" . }}-axosyslog-collector -f
 
 {{- if eq (index .Values "opentelemetry-collector-1" "config" "receivers" "otlp" "protocols" "http" "endpoint") "0.0.0.0:4318" }}
 
