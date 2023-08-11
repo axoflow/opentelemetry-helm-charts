@@ -1,68 +1,44 @@
-# OpenTelemetry Helm Charts
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/axoflow/axosyslog-docker/raw/main/docs/axoflow-logo-color.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/axoflow/axosyslog-docker/raw/main/docs/axoflow-logo-white.svg">
+    <img alt="Axoflow" src="https://github.com/axoflow/axosyslog-docker/raw/main/docs/axoflow-logo-color.svg" width="550">
+  </picture>
+</p>
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/opentelemetry-helm)](https://artifacthub.io/packages/search?repo=opentelemetry-helm)
+# AxoSyslog OpenTelemetry Demo Helm Chart - a cloud-native distribution of syslog-ng by Axoflow
 
-This repository contains [Helm](https://helm.sh/) charts for OpenTelemetry project.
+This repository contains the OpenTelemetry Demo [chart](https://helm.sh/docs/topics/charts/) for [AxoSyslog](https://github.com/axoflow/axosyslog-docker), which is intended to make it convenient to install AxoSyslog's OpenTelemetry demonstration based on [OpenTelemetry Demo](https://github.com/open-telemetry/opentelemetry-demo).
 
-## Usage
+You can read more about syslog-ng's and AxoSyslog's OpenTelemetry support in Axoflow's [blog post](https://axoflow.com/axosyslog-opentelemetry/).
 
-[Helm](https://helm.sh) must be installed to use the charts.
-Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
+## How to use
 
-Once Helm is set up properly, add the repo as follows:
+[Helm](https://helm.sh) must be installed to use the charts.  Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
 
-```console
-$ helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
-```
+Once Helm has been set up correctly, add the repo as follows:
 
-## Helm Charts
+    helm repo add axosyslog-opentelemetry-demo https://axoflow.github.io/opentelemetry-helm-charts
 
-You can then run `helm search repo open-telemetry` to see the charts.
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+axosyslog-opentelemetry-demo` to see the charts.
 
-### OpenTelemetry Collector
+To install the opentelemetry-demo chart:
 
-The chart can be used to install [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector)
-in a Kubernetes cluster. More detailed documentation can be found in
-[OpenTelemetry Collector chart directory](./charts/opentelemetry-collector).
+    helm install my-axosyslog-opentelemetry-demo axosyslog-opentelemetry-demo/opentelemetry-demo
 
-### OpenTelemetry Demo
+To uninstall the chart:
 
-The chart can be used to install [OpenTelemetry Demo](https://github.com/open-telemetry/opentelemetry-demo)
-in a Kubernetes cluster. More detailed documentation can be found in
-[OpenTelemetry Demo chart directory](./charts/opentelemetry-demo).
+    helm delete my-axosyslog-opentelemetry-demo
 
-### OpenTelemetry Operator
+## Contact and support
 
-The chart can be used to install [OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator)
-in a Kubernetes cluster. More detailed documentation can be found in
-[OpenTelemetry Operator chart directory](./charts/opentelemetry-operator).
+In case you need help or want to contact us, open a [GitHub issue](https://github.com/axoflow/opentelemetry-demo/issues), or come chat with us in the [syslog-ng channel of the Axoflow Discord server](https://discord.gg/4Fzy7D66Qq).
 
-## Contributing
+## About Axoflow
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+The [Axoflow](https://axoflow.com) founder team consists of successful entrepreneurs with a vast knowledge and hands-on experience about observability, log management, and how to apply these technologies in the enterprise security context. We also happen to be the creators of wide-spread open source technologies in this area, like syslog-ng and the [Logging operator for Kubernetes](https://github.com/kube-logging/logging-operator).
 
-Approvers ([@open-telemetry/helm-approvers](https://github.com/orgs/open-telemetry/teams/helm-approvers)):
-
-- [Alex Birca](https://github.com/Allex1), Adobe
-- [Pierre Tessier](https://github.com/puckpuck), Honeycomb
-- [Povilas](https://github.com/povilasv), Coralogix
-
-Emeritus Approvers:
-
-- [Naseem K. Ullah](https://github.com/naseemkullah), Transit
-
-Maintainers ([@open-telemetry/helm-maintainers](https://github.com/orgs/open-telemetry/teams/helm-maintainers)):
-
-- [Dmitrii Anoshin](https://github.com/dmitryax), Splunk
-- [Tyler Helmuth](https://github.com/TylerHelmuth), Honeycomb
-
-Emeritus Maintainers:
-
-- [Tigran Najaryan](https://github.com/tigrannajaryan), Splunk
-
-Learn more about roles in the [community repository](https://github.com/open-telemetry/community/blob/main/community-membership.md).
-
-## License
-
-[Apache 2.0 License](./LICENSE).
+To learn more about our products and our open-source projects, visit the [Axoflow blog](https://axoflow.com/blog/), or [subscribe to the Axoflow newsletter](https://axoflow.com/#newsletter-subscription).
