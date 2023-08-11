@@ -1,4 +1,49 @@
 apiVersion: v1
 entries:
-  axosyslog-collector:
-generated: "2023-08-11T15:28:38.517809198+02:00"
+  axosyslog-collector: null
+  opentelemetry-demo:
+  - apiVersion: v2
+    appVersion: 1.4.0
+    created: "2023-08-11T13:45:46.895646586Z"
+    dependencies:
+    - alias: opentelemetry-collector-1
+      condition: opentelemetry-collector-1.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.57.2
+    - alias: opentelemetry-collector-2
+      condition: opentelemetry-collector-2.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.57.2
+    - name: axosyslog-collector
+      repository: https://axoflow.github.io/axosyslog-charts
+      version: 0.5.0
+    - condition: jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 0.69.1
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 20.2.0
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.52.8
+    description: opentelemetry demo helm chart
+    digest: ad4cfc5f609a13aa1951bb47bd09e2fadba9545a217139f61abbb116adced6a6
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: puckpuck
+    - name: tylerhelmuth
+    name: opentelemetry-demo
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-demo
+    type: application
+    urls:
+    - https://github.com/axoflow/opentelemetry-helm-charts/releases/download/opentelemetry-demo-1.0.1/opentelemetry-demo-1.0.1.tgz
+    version: 1.0.1
+generated: "2023-08-11T13:45:46.895655786Z"
