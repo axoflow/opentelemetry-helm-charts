@@ -124,7 +124,7 @@
             "uid": "webstore-metrics"
           },
           "editorMode": "code",
-          "expr": "rate(runtime_cpython_cpu_time{type=~\"system\"}[$__interval])*100",
+          "expr": "rate(runtime_cpython_cpu_time_seconds_total{type=~\"system\"}[$__interval])*100",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -135,7 +135,7 @@
             "uid": "webstore-metrics"
           },
           "editorMode": "code",
-          "expr": "rate(runtime_cpython_cpu_time{type=~\"user\"}[$__interval])*100",
+          "expr": "rate(runtime_cpython_cpu_time_seconds_total{type=~\"user\"}[$__interval])*100",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -229,7 +229,7 @@
             "uid": "webstore-metrics"
           },
           "editorMode": "code",
-          "expr": "rate(runtime_cpython_memory{type=~\"rss|vms\"}[$__interval])/1024/1024",
+          "expr": "rate(runtime_cpython_memory_bytes_total{type=~\"rss|vms\"}[$__interval])/1024/1024",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -321,7 +321,7 @@
             "uid": "webstore-metrics"
           },
           "editorMode": "code",
-          "expr": "rate(app_recommendations_counter{recommendation_type=\"catalog\"}[$__interval])",
+          "expr": "rate(app_recommendations_counter_total{recommendation_type=\"catalog\"}[$__interval])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
