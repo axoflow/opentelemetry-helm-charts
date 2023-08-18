@@ -1,6 +1,6 @@
 # Helm chart for AxoSyslog OpenTelemetry Demo.
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/opentelemetry-helm-charts)](https://artifacthub.io/packages/search?org=axoflow&repo=opentelemetry-helm-charts)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/opentelemetry)](https://artifacthub.io/packages/search?org=axoflow&repo=opentelemetry)
 ![Kubernetes Version](https://img.shields.io/badge/k8s%20version-%3E=1.19-3f68d7.svg?style=flat-square)
 
 
