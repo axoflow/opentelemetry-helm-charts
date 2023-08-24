@@ -10,7 +10,7 @@
 
 This repository contains the OpenTelemetry Demo [chart](https://helm.sh/docs/topics/charts/) for [AxoSyslog](https://github.com/axoflow/axosyslog-docker), which is intended to make it convenient to install AxoSyslog's OpenTelemetry demonstration based on [OpenTelemetry Demo](https://github.com/open-telemetry/opentelemetry-demo).
 
-You can read more about syslog-ng's and AxoSyslog's OpenTelemetry support in Axoflow's [blog post](https://axoflow.com/axosyslog-opentelemetry/).
+You can read more about syslog-ng's and AxoSyslog's OpenTelemetry support in Axoflow's [blog post](https://axoflow.com/opentelemetry-support-in-more-detail-in-axosyslog-and-syslog-ng/).
 
 ## How to use
 
